@@ -1,0 +1,284 @@
+
+# Experiment No. 3(B)
+## Title  
+Study of Functions in Arduino Programming
+
+---
+
+## Aim  
+To understand the concept of built-in and user-defined functions in Arduino and implement them in a program.
+
+---
+
+## Theory  
+Functions are reusable blocks of code that perform specific tasks. They help in modular programming, reduce code repetition, and improve readability.  
+
+There are two types of functions in Arduino:
+1. **Built-in Functions** – Provided by Arduino (e.g., pinMode(), digitalWrite(), delay(), Serial.print())  
+2. **User-Defined Functions** – Created by the programmer to perform repeated tasks  
+
+Standard Function Structure:
+```cpp
+return_type functionName(parameters) {
+   // Code statements
+   return value;  // optional
+}
+````
+
+Every Arduino sketch must contain:
+
+* `setup()` → Runs only once
+* `loop()` → Runs continuously
+
+---
+
+## Components Required
+
+| Item        | Quantity  |
+| ----------- | --------- |
+| Arduino UNO | 1         |
+| USB Cable   | 1         |
+| Arduino IDE | Installed |
+
+---
+
+## Code Example 1: Using Built-in Functions
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+  pinMode(8, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(8, HIGH);
+  Serial.println("LED ON");
+  delay(1000);
+
+  digitalWrite(8, LOW);
+  Serial.println("LED OFF");
+  delay(1000);
+}
+```
+
+---
+
+## Code Example 2: Using a User-Defined Function
+
+```cpp
+int led = 9;
+
+void blinkLED(int timeDelay) {
+  digitalWrite(led, HIGH);
+  delay(timeDelay);
+  digitalWrite(led, LOW);
+  delay(timeDelay);
+}
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  blinkLED(500); // Calling user-defined function
+}
+```
+
+---
+
+## Result
+
+The LED blinks at a constant interval repeatedly by calling the custom function. This demonstrates the use of both built-in and user-defined functions in Arduino programming.
+
+---
+
+## Viva Questions & Answers (30 Detailed)
+
+1️⃣ **What is a function?**
+
+* A reusable block of code that performs a particular task.
+* Prevents code repetition and improves readability.
+* Essential for logic structuring.
+
+2️⃣ **What are built-in functions?**
+
+* Predefined functions in Arduino library.
+* Example: pinMode(), digitalWrite(), delay().
+* Easy access to hardware control.
+
+3️⃣ **What are user-defined functions?**
+
+* Functions created by the programmer.
+* Used when specific repeated operation needed.
+* Increases modularity of code.
+
+4️⃣ **Why are functions important?**
+
+* Reduce complexity by breaking large programs into small tasks.
+* Improves debugging and maintenance.
+* Saves time by reusing code.
+
+5️⃣ **Syntax of a function in Arduino?**
+
+* `return_type functionName(parameters) { body }`
+* Must follow brackets and naming rules.
+* Parameters optional based on requirement.
+
+6️⃣ **Explain return type in functions.**
+
+* Defines what value function gives back.
+* Example: int, float, bool, void.
+* void means no returning value.
+
+7️⃣ **What is a parameter?**
+
+* Values passed into a function.
+* Used inside function for operations.
+* Helps make flexible & dynamic functions.
+
+8️⃣ **Difference between function declaration and definition?**
+
+* Declaration tells compiler about function name & type.
+* Definition contains complete working code.
+* Sometimes both done together.
+
+9️⃣ **Can loop() be considered a function?**
+
+* Yes, a special Arduino function.
+* Repeats endlessly after setup.
+* Used for main running logic.
+
+🔟 **What is setup() function?**
+
+* Initializes system components.
+* Runs only once on power or reset.
+* Used for pinMode, Serial.begin etc.
+
+1️⃣1️⃣ **What is meant by scope of a variable?**
+
+* Region where variable is accessible.
+* Local: inside function only.
+* Global: used anywhere in the program.
+
+1️⃣2️⃣ **Why do we use void keyword?**
+
+* Indicates the function returns nothing.
+* Common for functions that only execute tasks.
+* Saves memory by avoiding data return.
+
+1️⃣3️⃣ **What is function calling?**
+
+* Invoking a function to run its code.
+* Must match function name and parameters.
+* Without calling, definition is ignored.
+
+1️⃣4️⃣ **Can a function call another function?**
+
+* Yes, called nested functions.
+* Used in layered or complex systems.
+* Better structural organization.
+
+1️⃣5️⃣ **What is recursion?**
+
+* Function calling itself again.
+* Used in data structures & algorithms.
+* Rarely used in Arduino due to memory limits.
+
+1️⃣6️⃣ **What is default return value if none specified?**
+
+* Compiler throws an error if non-void function lacks return.
+* Void functions do not return anything.
+* Return type must match usage.
+
+1️⃣7️⃣ **What is Serial.print()?**
+
+* Built-in communication function.
+* Displays output on Serial Monitor.
+* Very helpful for debugging.
+
+1️⃣8️⃣ **What is the use of delay() function?**
+
+* Pauses execution for specified milliseconds.
+* Helps create timing-based behavior.
+* Blocks further code execution temporarily.
+
+1️⃣9️⃣ **Can we define a function without parameters?**
+
+* Yes. Example: setup() or loop().
+* Executes same task every time called.
+* Parameter add flexibility but not mandatory.
+
+2️⃣0️⃣ **Can functions return multiple values?**
+
+* Directly NO.
+* Can return array, structure, or modify global variables.
+* Only one return type allowed.
+
+2️⃣1️⃣ **Why is naming of functions important?**
+
+* Should represent task clearly.
+* Increases code readability.
+* Avoid reserved keywords.
+
+2️⃣2️⃣ **What happens if we forget braces in function?**
+
+* Syntax error during compilation.
+* Functions require `{ }` to define code block.
+* Braces structure execution flow.
+
+2️⃣3️⃣ **Do Arduino functions support overloading?**
+
+* Yes. Same name, different parameters.
+* Helps create flexible usage with same name.
+* C++ feature supported in Arduino.
+
+2️⃣4️⃣ **Explain function prototype.**
+
+* Pre-declaration of function before usage.
+* Helps when definition exists later in file.
+* Required when calling before defining.
+
+2️⃣5️⃣ **What are return statements used for?**
+
+* Sends value back to calling location.
+* Also stops function execution.
+* Used in computations or decisions.
+
+2️⃣6️⃣ **Is setup() and loop() user-defined?**
+
+* Defined by programmer but required by Arduino structure.
+* They must exist in every sketch.
+* Special meaning for microcontroller.
+
+2️⃣7️⃣ **Can we use same variable name in different functions?**
+
+* Yes, if declared locally.
+* Local variables live inside their function only.
+* No conflict in different scopes.
+
+2️⃣8️⃣ **Why avoid long functions in code?**
+
+* Harder to debug & understand.
+* Increases memory space.
+* Functions must be short & task-oriented.
+
+2️⃣9️⃣ **Can a function modify a global variable?**
+
+* Yes, globals accessible anywhere.
+* Useful but can cause errors if misused.
+* Must be careful with global-based logic.
+
+3️⃣0️⃣ **What is modular programming?**
+
+* Breaking program into small manageable units.
+* Functions make code readable & reusable.
+* Standard practice in embedded & IoT systems.
+
+---
+
+## Conclusion
+
+Functions reduce program complexity, improve debugging and allow efficient program architecture. This experiment taught both predefined and custom function usage for structured programming in Arduino.
+
+---
+
